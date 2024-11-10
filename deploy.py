@@ -118,7 +118,7 @@ class Config(BaseSettings):
     OPENAI_API_KEY: str | None = None
     PROJECT_NAME: str
 
-    AWS_EC2_AMI: str = "ami-0f9c346cdcac09fb5"  # Deep Learning AMI GPU PyTorch 2.0.1 (Ubuntu 20.04) 20230827
+    AWS_EC2_AMI: str = "ami-0fef6f10b79a24c42"  # Deep Learning AMI GPU PyTorch 2.0.1 (Ubuntu 20.04) 20230827
     AWS_EC2_DISK_SIZE: int = 100  # GB
     #AWS_EC2_INSTANCE_TYPE: str = "p3.2xlarge"  # (V100 16GB $3.06/hr x86_64)
     AWS_EC2_INSTANCE_TYPE: str = "g4dn.xlarge"  # (T4 16GB $0.526/hr x86_64)
