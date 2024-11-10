@@ -334,8 +334,8 @@ def deploy_ec2_instance(
     Returns:
         tuple[str | None, str | None]: A tuple containing the instance ID and IP address, or None, None if deployment fails.
     """
-    ec2 = boto3.resource('ec2')
-    ec2_client = boto3.client('ec2')
+    ec2 = boto3.resource('ec2', region_name=config.AWS_REGION)
+    ec2_client = boto3.client('ec2', region_name=config.AWS_REGION)
 
     # Check if key pair exists, if not create one
     try:
@@ -644,7 +644,7 @@ class Deploy:
         Returns:
             None
         """
-        ec2 = boto3.resource('ec2')
+        ec2 = boto3.resource('ec2', region_name=config.AWS_REGION)
 
         instances = ec2.instances.filter(
             Filters=[
@@ -672,8 +672,8 @@ class Deploy:
         Returns:
             None
         """
-        ec2_resource = boto3.resource('ec2')
-        ec2_client = boto3.client('ec2')
+        ec2_resource = boto3.resource('ec2', region_name=config.AWS_REGION)
+        ec2_client = boto3.client('ec2', region_name=config.AWS_REGION)
 
         # Terminate EC2 instances
         instances = ec2_resource.instances.filter(
@@ -707,7 +707,7 @@ class Deploy:
         Returns:
             None
         """
-        ec2 = boto3.resource('ec2')
+        ec2 = boto3.resource('ec2', region_name=config.AWS_REGION)
 
         instances = ec2.instances.filter(
             Filters=[{'Name': 'tag:Name', 'Values': [config.PROJECT_NAME]}]
